@@ -56,6 +56,10 @@
   }
   header nav a{color:var(--cream);text-decoration:none;margin-left:32px;transition:color .2s;}
   header nav a:hover{color:var(--amber);}
+  header nav a.cv-btn{
+    color:var(--amber);border:1px solid var(--amber);padding:7px 16px;border-radius:2px;
+  }
+  header nav a.cv-btn:hover{background:var(--amber);color:#0b0b0d;}
   .dot{color:var(--amber);}
 
   section{
@@ -148,6 +152,25 @@
     margin-top:8px;
   }
 
+  .hero-contact a.hero-cv{
+    color:var(--amber-soft);border:1px solid var(--amber-soft);
+    border-bottom:1px solid var(--amber-soft);padding:5px 14px;
+  }
+  .hero-contact a.hero-cv:hover{background:var(--amber-soft);color:#0b0b0d;}
+
+  /* ABOUT */
+  .about{
+    padding:0 48px 100px;
+    max-width:900px;
+  }
+  .about p{
+    font-family:'JetBrains Mono',monospace;
+    font-size:15.5px;line-height:2;color:var(--grey);
+    border-left:2px solid var(--amber);
+    padding-left:28px;
+  }
+  .about p strong{color:var(--cream);font-weight:500;}
+
   /* SECTION HEADS */
   .section-head{
     display:flex;justify-content:space-between;align-items:flex-end;
@@ -213,12 +236,22 @@
     text-transform:uppercase;letter-spacing:.08em;padding-top:2px;
   }
   .case-body .row .v{font-family:'JetBrains Mono',monospace;font-size:13.5px;color:var(--grey);line-height:1.75;}
+  .exp-list{list-style:none;}
+  .exp-list li{
+    font-family:'JetBrains Mono',monospace;font-size:13.5px;color:var(--grey);
+    padding:13px 0 13px 24px;border-top:1px solid var(--line);line-height:1.7;position:relative;
+  }
+  .exp-list li:first-child{border-top:none;}
+  .exp-list li::before{content:"—";position:absolute;left:0;color:var(--amber);}
+  .exp-list li strong{color:var(--amber-soft);font-weight:500;}
   .case a.link{
     display:inline-flex;align-items:center;gap:8px;margin-top:24px;
     font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--amber-soft);
     text-decoration:none;border-bottom:1px solid transparent;transition:border-color .2s;
   }
   .case a.link:hover{border-color:var(--amber-soft);}
+  .case-links{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:24px;}
+  .case-links a.link{margin-top:0;}
 
   /* SKILL BARS */
   .skills-main{margin-bottom:20px;}
@@ -273,6 +306,7 @@
     header{padding:18px 22px;}
     header nav{display:none;}
     section{padding:110px 22px 80px;}
+    .about{padding:0 22px 60px;}
     .stats{grid-template-columns:repeat(2,1fr);}
     .stats div:nth-child(2){border-right:none;}
     .capabilities{grid-template-columns:1fr;}
@@ -291,7 +325,7 @@
     <a href="mailto:Olha.G.Shaptala@gmail.com">Email</a>
     <a href="https://linkedin.com/in/olyashaptala" target="_blank">LinkedIn</a>
     <a href="https://github.com/orangegreen212" target="_blank">GitHub</a>
-    <a href="#work">Work</a>
+    <a href="./Olha_Shaptala_CV.pdf" target="_blank" class="cv-btn">Download CV ↓</a>
   </nav>
 </header>
 
@@ -304,8 +338,16 @@
     <a href="https://linkedin.com/in/olyashaptala" target="_blank">LinkedIn ↗</a>
     <a href="https://github.com/orangegreen212" target="_blank">GitHub ↗</a>
     <a href="https://public.tableau.com/app/profile/olay/vizzes" target="_blank">Tableau Public ↗</a>
+    <a href="./Olha_Shaptala_CV.pdf" target="_blank" class="hero-cv">Download CV ↓</a>
   </div>
   <div class="scroll-cue"><span class="bar"></span>SCROLL</div>
+</section>
+
+<section class="about">
+  <p class="reveal">
+    <strong>Revenue &amp; Product Data Analyst</strong> with 10+ years of professional experience spanning Sales, Ad Operations, Marketing Operations and Analytics — from managing enterprise client accounts across 6 countries to automating revenue reporting and shipping dashboards people actually use.
+    I combine SQL (BigQuery), Python and Tableau/BI with applied machine learning to solve business problems and support product and revenue decisions, and I'm currently deepening my data science skills at Turing College.
+  </p>
 </section>
 
 <section id="skills">
@@ -407,7 +449,7 @@
       <div class="row"><div class="k">Problem</div><div class="v">Revenue was growing, but nobody could say whether it was coming from more customers, more frequent purchases, or bigger baskets.</div></div>
       <div class="row"><div class="k">Approach</div><div class="v">Decomposed revenue into Users × Frequency × AOV across time periods and customer cohorts to isolate the real growth driver.</div></div>
       <div class="row"><div class="k">Result</div><div class="v">A repeatable framework that turns "revenue is up" into "here's exactly why, and here's the lever to pull next."</div></div>
-      <a class="link" href="https://github.com/orangegreen212/Revenue-Analytics-E-commerce-Growth-Analysis" target="_blank">View repository →</a>
+      <a class="link" href="https://github.com/orangegreen212/Revenue-Analytics-E-commerce-Growth-Analysis" target="_blank">GitHub →</a>
     </div>
   </div>
 
@@ -423,7 +465,10 @@
       <div class="row"><div class="k">Problem</div><div class="v">A UK online retailer had transaction data but no way to tell which customers mattered most, or where sales were headed next quarter.</div></div>
       <div class="row"><div class="k">Approach</div><div class="v">Built RFM-based customer segments ("Champions", "At-Risk", etc.) with K-Means clustering, then forecast future sales with the Prophet model — packaged into a Tableau dashboard and a stakeholder-ready presentation.</div></div>
       <div class="row"><div class="k">Result</div><div class="v">A segmentation + forecasting pair that tells the business who to retain now and how much revenue to expect next.</div></div>
-      <a class="link" href="https://github.com/orangegreen212/Customer-Segmentation-and-Revenue-Forecasting" target="_blank">View repository →</a>
+      <div class="case-links">
+        <a class="link" href="https://github.com/orangegreen212/Customer-Segmentation-and-Revenue-Forecasting" target="_blank">GitHub →</a>
+        <a class="link" href="https://public.tableau.com/app/profile/olay/vizzes" target="_blank">Tableau Dashboard →</a>
+      </div>
     </div>
   </div>
 
@@ -439,7 +484,7 @@
       <div class="row"><div class="k">Problem</div><div class="v">One dataset on AI adoption in the workforce — but a data analyst, a marketer, and an HR lead all need a different answer from it.</div></div>
       <div class="row"><div class="k">Approach</div><div class="v">Built one interactive Streamlit app with 5 linked dashboards, each answering a different stakeholder's core question — from "can we trust the data?" to "where is workforce risk highest?"</div></div>
       <div class="row"><div class="k">Result</div><div class="v">A single source of truth that serves five different roles without five different reports.</div></div>
-      <a class="link" href="https://github.com/orangegreen212/data_to_5_dashboards" target="_blank">View repository →</a>
+      <a class="link" href="https://github.com/orangegreen212/data_to_5_dashboards" target="_blank">GitHub →</a>
     </div>
   </div>
 
@@ -455,7 +500,7 @@
       <div class="row"><div class="k">Problem</div><div class="v">CRM exports routinely came in with missing contact fields and duplicate records, and cleaning them by hand ate hours before any analysis could start.</div></div>
       <div class="row"><div class="k">Approach</div><div class="v">Built a Streamlit tool that ingests a raw CRM CSV, drops incomplete key records, deduplicates, and outputs a cleaning report plus a ready-to-use file — no manual spreadsheet work.</div></div>
       <div class="row"><div class="k">Result</div><div class="v">Same automation instinct behind the 60% faster reporting cycle at Motorsport, turned into a reusable self-serve tool.</div></div>
-      <a class="link" href="https://github.com/orangegreen212/CRM_Cleaning_Automatization" target="_blank">View repository →</a>
+      <a class="link" href="https://github.com/orangegreen212/CRM_Cleaning_Automatization" target="_blank">GitHub →</a>
     </div>
   </div>
 
@@ -471,7 +516,10 @@
       <div class="row"><div class="k">Problem</div><div class="v">Customer segments existed on paper, but nobody had time to translate them into actual marketing actions per group.</div></div>
       <div class="row"><div class="k">Approach</div><div class="v">Built RFM segmentation, then connected segments to an LLM pipeline that drafts targeted marketing actions automatically per group.</div></div>
       <div class="row"><div class="k">Result</div><div class="v">A working bridge between "who are our customers" and "what should we actually send them" — without a human doing it manually every time.</div></div>
-      <a class="link" href="https://github.com/orangegreen212/AI-Marketing-Agent-" target="_blank">View repository →</a>
+      <div class="case-links">
+        <a class="link" href="https://github.com/orangegreen212/AI-Marketing-Agent-" target="_blank">GitHub →</a>
+        <a class="link" href="https://public.tableau.com/app/profile/olay/vizzes" target="_blank">Tableau Dashboard →</a>
+      </div>
     </div>
   </div>
 
@@ -487,7 +535,7 @@
       <div class="row"><div class="k">Problem</div><div class="v">Product and marketing teams needed to know if a change actually moved retention and conversion — not just whether numbers looked different.</div></div>
       <div class="row"><div class="k">Approach</div><div class="v">Designed and evaluated A/B tests with proper statistical significance testing, including the classic Cookie Cats retention case.</div></div>
       <div class="row"><div class="k">Result</div><div class="v">Clear, defensible answers on what to ship — separating real effects from noise.</div></div>
-      <a class="link" href="https://github.com/orangegreen212/AB_-Testing_projects_TC" target="_blank">View repository →</a>
+      <a class="link" href="https://github.com/orangegreen212/AB_-Testing_projects_TC" target="_blank">GitHub →</a>
     </div>
   </div>
 </section>
@@ -495,10 +543,10 @@
 <section id="experience">
   <div class="section-head reveal">
     <div>
-      <div class="idx">04 — Track Record</div>
+      <div class="idx">04 — Commercial Experience</div>
       <h2>Where I've <em>worked</em></h2>
     </div>
-    <p>Media, tech and independent projects.</p>
+    <p>Data, marketing and revenue operations roles.</p>
   </div>
 
   <div class="case reveal">
@@ -508,7 +556,12 @@
       <div class="stack"><span>GA4</span><span>GTM</span><span>BigQuery</span><span>Tableau</span></div>
     </div>
     <div class="case-body">
-      <div class="row"><div class="k">12/2025 —</div><div class="v">Set up web analytics tracking (GA4, GTM, BigQuery) from scratch and built dashboards to monitor traffic, conversions and marketing KPIs; automated recurring performance reporting.</div></div>
+      <ul class="exp-list">
+        <li>Set up web analytics tracking from scratch using GA4, GTM and BigQuery</li>
+        <li>Built Tableau dashboards to monitor traffic, conversions and marketing KPIs</li>
+        <li>Analyzed user behavior and website performance to surface actionable patterns</li>
+        <li>Automated recurring performance reporting</li>
+      </ul>
     </div>
   </div>
 
@@ -519,7 +572,12 @@
       <div class="stack"><span>Tableau</span><span>BigQuery</span><span>SQL</span></div>
     </div>
     <div class="case-body">
-      <div class="row"><div class="k">04/24–03/25</div><div class="v">Built automated Tableau dashboards to monitor marketing and business KPIs; queried and transformed data in BigQuery to analyze conversion funnels; identified behavioral patterns in event data and proposed optimizations.</div></div>
+      <ul class="exp-list">
+        <li>Built automated Tableau dashboards to monitor marketing and business KPIs</li>
+        <li>Queried and transformed datasets in BigQuery to analyze user conversion funnels</li>
+        <li>Identified behavioral patterns in website event data and proposed optimization actions</li>
+        <li>Supported marketing campaign performance analysis using GA data</li>
+      </ul>
     </div>
   </div>
 
@@ -530,7 +588,26 @@
       <div class="stack"><span>Excel</span><span>Python</span><span>NetSuite</span></div>
     </div>
     <div class="case-body">
-      <div class="row"><div class="k">Impact</div><div class="v">Automated revenue allocation reporting with Excel & Python — <strong style="color:var(--amber-soft);">cut period-end closing time by 60%</strong>. Built financial dashboards and revenue tracking systems in NetSuite, supported budget forecasting and a successful financial audit.</div></div>
+      <ul class="exp-list">
+        <li>Automated revenue allocation reporting with Excel & Python — <strong>cut period-end closing time by 60%</strong></li>
+        <li>Built financial dashboards and revenue tracking systems in NetSuite</li>
+        <li>Maintained sales planning and budget forecasting data</li>
+        <li>Contributed to a successful financial audit through structured data management</li>
+      </ul>
+    </div>
+  </div>
+  <div class="case reveal">
+    <div>
+      <span class="case-tag">2013 – 2018</span>
+      <h3>Account Manager, Sales<br><span style="color:var(--grey);font-size:16px;">Luxoft</span></h3>
+      <div class="stack"><span>Client Relations</span><span>Sales</span><span>Cross-border Accounts</span></div>
+    </div>
+    <div class="case-body">
+      <ul class="exp-list">
+        <li>Managed client relationships and accounts across 6 countries</li>
+        <li>Acted as the main point of contact between clients and delivery teams on IT services engagements</li>
+        <li>Supported contract renewals and account growth within an enterprise sales cycle</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -558,6 +635,7 @@
     <div class="skill-col">
       <h4>Education</h4>
       <ul>
+        <li>Turing College — Data Science & AI<br><span style="color:var(--grey-dim);font-size:10.5px;">09/2025 – 11/2026, in progress</span></li>
         <li>Oles Honchar Dnipro National University</li>
         <li>Master's Degree</li>
         <li>Cybersecurity & Computer-Integrated Tech</li>
